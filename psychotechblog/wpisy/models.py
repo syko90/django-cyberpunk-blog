@@ -6,6 +6,7 @@ class Wpis(models.Model):
     slug = models.SlugField()
     body = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
+    thumb = models.ImageField(default='default.png', blank=True)
     # dodaj miniaturke do wpisu - to robimy potem
     # dodaj autora do wpisu - to robimy potem
 
