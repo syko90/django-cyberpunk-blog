@@ -8,4 +8,6 @@ def wpisy_list(request):
     return render(request, 'wpisy/wpisy_list.html', {'wpisy': wpisy} )
 
 def wpisy_detail(request, slug):
-    return HttpResponse(slug)
+    #return HttpResponse(slug)
+    wpis = Wpis.objects.get(slug=slug)
+    return render(request, 'wpisy/wpisy_detail.html', {'wpis': wpis})
