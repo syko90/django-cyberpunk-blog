@@ -4,6 +4,7 @@ from . import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls.static import static
 from django.conf import settings
+from wpisy import views as wpisy_widok
 
 
 urlpatterns = [
@@ -11,7 +12,7 @@ urlpatterns = [
     path('konta/', include('konta.urls')),
     path('wpisy/', include('wpisy.urls')),
     path('onas/', views.onas),
-    path('',views.blog),
+    path('',wpisy_widok.wpisy_list, name='Start'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
