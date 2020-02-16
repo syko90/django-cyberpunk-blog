@@ -21,6 +21,9 @@ def wpis_nowy(request):
         form = forms.NowyWpis(request.POST, request.FILES)
         if form.is_valid():
             # zapisz wpis na bloga do bazy danych
+            instancja = form.save(commit=False)
+            instancja.autor = request.user
+            instancja.save()
             return redirect('wpisy:list')
     else:
         form =  forms.NowyWpis()
